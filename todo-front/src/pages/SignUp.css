@@ -1,0 +1,24 @@
+.SignUp{
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url('/muralla_china.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.emailColor{
+  color: black;
+}
+
+.passwordColor{
+  color:black;
+}
+
+.nameColor{
+  color:black;
+}

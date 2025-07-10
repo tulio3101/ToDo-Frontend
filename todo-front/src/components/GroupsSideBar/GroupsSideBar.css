@@ -1,0 +1,244 @@
+.sidebar{
+  width: 280px;
+  background-color: #f7f6fb;
+  display: flex;
+  flex-direction: column;
+  height : 100%;
+  position: relative; 
+  user-select: none;
+  overflow: hidden;
+}
+
+.sidebar-content {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e9ecef;
+} 
+
+.user-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #dee2e6;
+}
+
+.username {
+  font-weight: bold;
+  color: #1a1a1a;
+  margin: 0;
+  font-size: 14px;
+}
+
+.email {
+  font-size: 12px;
+  color: gray;
+  margin :0;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 20px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  background-color: #ffffff;
+  color: #a1a1a1;
+  font-size: 14px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+  user-select: none;
+}
+
+.search-bar:focus {
+  border-color: #2e31ff; 
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.main-groups {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: black;
+  user-select: none;
+}
+
+.main-groups li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  margin-bottom: 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+.main-groups li:hover {
+  background-color: #e0e0e0;
+  transform: translateX(2px);
+}
+
+.main-groups li.active {
+  background-color: #d1d5db;
+}
+
+.list-name {
+  flex: 1;
+}
+
+.list-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.task-count {
+  font-size: 12px;
+  color: #6c757d;
+  background-color: #e9ecef;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 30px;
+  text-align: center;
+}
+
+.main-groups li.active .task-count {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.separator-line {
+  color: #000;
+  text-align: center;
+  margin: 10px 0;
+  font-size: 12px;
+}
+
+.add-container {
+  width: 230px;
+  height: 30px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color:#f7f6fb;
+  padding: 10px 20px; 
+  user-select: none;
+}
+
+.add-container button {
+  background: none;
+  border: none;
+  color: #1a1a1a;
+  cursor: pointer; 
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-container button:hover {
+  background-color: rgba(99, 102, 241, 0.1);
+  color:#2e31ff;
+}
+
+.add-container button:active {
+  background-color: rgba(99, 102, 241, 0.2);
+}
+
+.add-container button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.sidebar-content {
+  scrollbar-width: thin;
+  scrollbar-color: #c2c2c2 #f7f6fb;
+}
+
+.add-list-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 24    px;
+}
+
+.new-list-input {
+  padding: 8px 12px;
+  border: 1px solid #3b82f6;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.new-list-input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.save-btn,
+.cancel-btn {
+  flex: 1;
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.save-btn {
+  background-color: #22c55e;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-list {
+  background: none;
+  border: none;
+  color: #dc3545;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.main-groups li:hover .delete-list {
+  opacity: 1;
+}
+
+.delete-list:hover {
+  background-color: #dc3545;
+  color: white;
+}

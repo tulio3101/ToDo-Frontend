@@ -1,0 +1,41 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.home {
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url('/taj_mahal.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagenPrincipal {
+  width: 280px;
+  height: 250px;
+  padding-bottom: 20px;
+  caret-color: transparent;
+
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  user-select: none;
+}
+
+h1 {
+  color: #000000;
+  text-align: center;
+  user-select: none;
+}

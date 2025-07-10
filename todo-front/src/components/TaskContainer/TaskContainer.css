@@ -1,0 +1,37 @@
+.taskContainer {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 20px;
+  max-height: calc(100vh - 200px);
+  scrollbar-color: #d1d5db #f7f6fb00;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #000000;
+}
+
+.empty-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #999;
+}
+
+.empty-subtitle {
+  font-size: 14px;
+  color: #bbb;
+}
+
+.task-section {
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}

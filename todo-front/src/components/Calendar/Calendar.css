@@ -1,0 +1,261 @@
+.calendar-container {
+  padding: 20px;
+  height: 100vh;
+  overflow-y: auto;
+  background-image: url('../../../public/cristo_redentor.jpg');
+  user-select: none;
+  scrollbar-color: rgb(246, 255, 246) rgba(0, 0, 0, 0);
+}
+
+.calendar-header h1 {
+  font-size: 30px;
+  color: #1a1a1a;
+  margin: 0 0 5px 0;
+  font-weight: bold;
+}
+
+.calendar-content {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 20px;
+  height: calc(100vh - 110px);
+  padding-top: 30px;
+  padding-left: 100px;
+  padding-right: 100px;
+
+}
+
+.calendar-main {
+  background: #f7f6fb;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-nav h2 {
+  margin: 0;
+  color: #1a1a1a;
+  font-size: 24px;
+}
+
+.nav-btn {
+  background: #f3f4f6;
+  border: none;
+  border-radius: 6px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  color: #374151;
+  transition: background-color 0.2s;
+}
+
+.nav-btn:hover {
+  background: #e5e7eb;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  margin-bottom: 10px;
+}
+
+.weekday {
+  text-align: center;
+  padding: 10px;
+  font-weight: 600;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  color:#1a1a1a
+}
+
+.calendar-day:hover:not(.empty) {
+  background-color: #f3f4f6;
+}
+
+.calendar-day.empty {
+  cursor: default;
+}
+
+.calendar-day.today {
+  background-color: #dbeafe;
+  border-color: #3b82f6;
+}
+
+.calendar-day.selected {
+  background-color: #3b82f6;
+  color: rgb(255, 255, 255);
+}
+
+.day-number {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.day-indicators {
+  display: flex;
+  gap: 2px;
+}
+
+.event-dot,
+.task-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.event-dot {
+  background-color: #22c55e;
+}
+
+.task-dot {
+  background-color: #f59e0b;
+}
+
+.calendar-sidebar {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.selected-date-info h3 {
+  margin: 0 0 20px 0;
+  color: #1a1a1a;
+  font-size: 18px;
+}
+
+.date-events h4 {
+  margin: 20px 0 10px 0;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.event-item,
+.task-item {
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  background: #f9fafb;
+  border-radius: 6px;
+  border-left: 3px solid #22c55e;
+}
+
+.task-item {
+  border-left-color: #f59e0b;
+}
+
+.event-title,
+.task-title {
+  display: block;
+  font-weight: 500;
+  color: #374151;
+}
+
+.task-title.completed {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+.event-time {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.add-event-form {
+  margin-top: 15px;
+  padding: 15px;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.event-input,
+.time-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.save-btn,
+.cancel-btn {
+  flex: 1;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.save-btn {
+  background: #22c55e;
+  color: white;
+}
+
+.cancel-btn {
+  background: #6b7280;
+  color: white;
+}
+
+.add-event-btn {
+  width: 100%;
+  padding: 10px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .calendar-content {
+    grid-template-columns: 1fr;
+  }
+
+  .calendar-sidebar {
+    order: -1;
+  }
+}

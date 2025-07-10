@@ -1,0 +1,53 @@
+.taskPanel{
+    display: flex;
+    position: relative;
+    user-select: none;
+    flex-direction: column;
+    width: 95%;
+}
+
+.taskPanel h1{
+    font-size: 30px;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 20px;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.taskPanel p{
+    font-size: 15px;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 0 20px;
+}
+
+.task-container{
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    padding-top: 10px;
+    height: 80%;
+    width: 100%;
+    
+}
+
+.task-bar{
+    display: flex;
+    justify-content: left;
+    position: fixed;
+    bottom: 30px;
+    padding-left: 20px;
+    width: 95%;
+    height: 40px;
+    align-items: center;
+
+}
+
+.optionsPanel{
+    position: fixed;
+    bottom: 340px;
+    right: 105px;
+    
+}
+
