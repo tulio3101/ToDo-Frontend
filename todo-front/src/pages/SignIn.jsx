@@ -4,13 +4,14 @@ import "./SignIn.css";
 import MainPageButton from "../components/MainPageButton/MainPageButton";
 import ToDoText from "../components/ToDoText/ToDoText";
 import validator from 'validator';
+import axios from 'axios';
 
 export default function SignIn() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSignIn = () => {
+    const handleSignIn = async() => {
     if (!email || !password) {
         alert("Please complete all fields");
         setEmail('');
@@ -24,7 +25,25 @@ export default function SignIn() {
         return;
     }
 
-    navigate("/MyDay");
+    try{
+        const response = await axios.post('http://localhost:8080/auth/validate/login', { 
+            correoElectronico: email,
+            contraseña: password
+        });
+
+        if (!response.ok) {
+            throw new Error("Login failed");
+        } else {
+            alert("Login successful");
+            navigate("/MyDay");
+        }
+        
+
+    } catch (error) {
+        alert("El usuario o la contraseña son incorrectos");
+        setEmail('');
+        setPassword('');
+    }    
 }
 
 

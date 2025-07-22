@@ -5,6 +5,7 @@ import Home from "../pages/Home"
 import MainPageButton from "../components/MainPageButton/MainPageButton";
 import ToDoText from "../components/ToDoText/ToDoText";
 import validator from 'validator';
+import axios from 'axios';
 
 export default function SignUp(){
     const navigate = useNavigate();
@@ -12,7 +13,7 @@ export default function SignUp(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSignUp = () => {
+    const handleSignUp = async() => {
         if(!email || !password || !name){
             setEmail('');
             setName('');
@@ -27,7 +28,23 @@ export default function SignUp(){
             alert("Please enter a valid email");
             return;
         }
-        navigate("/MyDay");
+
+        try{
+            await axios.post('http://localhost:8080/auth/validate/register', { //Vertificar el endpoint
+                name: name,
+                email: email,
+                password: password
+            });
+
+            alert("Sign Up successful");
+            navigate("/MyDay");
+        } catch (error) {
+            alert("An error occurred during sign up");
+            setEmail('');
+            setName('');
+            setPassword('');
+        }
+        
     }
 
     const handleBack = () => {
