@@ -27,19 +27,26 @@ export default function SignIn() {
 
     try{
         const response = await axios.post('http://localhost:8080/auth/validate/login', { 
-            correoElectronico: email,
-            contraseña: password
+        correoElectronico: email,
+        contrasena: password
         });
+        const userData = response.data; 
+        localStorage.setItem('usuario', JSON.stringify(userData));
 
-        if (!response.ok) {
-            throw new Error("Login failed");
-        } else {
-            alert("Login successful");
-            navigate("/MyDay");
-        }
-        
+        alert("Login successful");
+        navigate("/MyDay");
 
     } catch (error) {
+        console.error("Sign Up error:", error); 
+        if (error.response) {
+            console.error("Response data:", error.response.data);       
+            console.error("Status code:", error.response.status);        
+            console.error("Headers:", error.response.headers);           
+        } else if (error.request) {
+            console.error("No response received:", error.request);
+        } else {
+            console.error("Error message:", error.message);
+        }        
         alert("El usuario o la contraseña son incorrectos");
         setEmail('');
         setPassword('');

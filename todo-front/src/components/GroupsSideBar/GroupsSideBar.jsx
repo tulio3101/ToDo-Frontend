@@ -1,9 +1,17 @@
 import "./GroupsSideBar.css"
 import { useState } from "react"
 import { useTaskContext } from "../Context/TaskContext"
+import axios from "axios"
+
+
 
 export default function GroupsSideBar() {
   const { currentView, setCurrentView, lists, addList, deleteList, getTaskCount, getCompletedCount } = useTaskContext()
+
+
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
+  const [name, setName] = useState(usuario?.nombre || "");
+  const [email, setEmail] = useState(usuario?.correoElectronico || "");
 
   const [showAddList, setShowAddList] = useState(false)
   const [newListName, setNewListName] = useState("")
@@ -28,16 +36,32 @@ export default function GroupsSideBar() {
     }
   }
 
+
+  function HandleDeleteList(id){
+      axios.delete(`http://localhost:8080/usuarios/listadetareas/${id}`)
+        .then(() => {
+          console.log("List deleted successfully");
+          deleteList(id);
+      })
+      .catch((error) => {
+          console.error("Error deleting list:", error);
+          alert("Error deleting list");
+      });
+  }
+
+
+  
+
   const filteredCustomLists = customLists.filter((list) => list.name.toLowerCase().includes(searchTerm.toLowerCase()))
 
   return (
     <div className="sidebar">
       <div className="sidebar-content">
         <div className="user-info">
-          <img src="../../../public/profilepic.jpg" alt="User avatar" />
+          <img src="../../../public/user.jpg" alt="User avatar" />
           <div>
-            <p className="username">Daniel Patiño Mejia</p>
-            <p className="email">danpame1219@gmail.com</p>
+            <p className="username">{name}</p>
+            <p className="email">{email}</p>
           </div>
         </div>
 
@@ -76,7 +100,7 @@ export default function GroupsSideBar() {
                 <span className="task-count">
                   {getCompletedCount(list.id)}/{getTaskCount(list.id)}
                 </span>
-                <button className="delete-list" onClick={() => deleteList(list.id)} title="Delete list">
+                <button className="delete-list" onClick={() => deleteList(list.id)} title="Delete list"> 
                   ×
                 </button>
               </div>
@@ -86,7 +110,6 @@ export default function GroupsSideBar() {
 
         <p className="separator-line">______________________________________</p>
 
-        {/* Nuevas opciones del sistema */}
         <ul className="main-groups">
           {systemOptions.map((option) => (
             <li

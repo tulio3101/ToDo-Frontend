@@ -7,6 +7,7 @@ import ToDoText from "../components/ToDoText/ToDoText";
 import validator from 'validator';
 import axios from 'axios';
 
+
 export default function SignUp(){
     const navigate = useNavigate();
     const [name, setName] = useState('');
@@ -30,15 +31,19 @@ export default function SignUp(){
         }
 
         try{
-            await axios.post('http://localhost:8080/auth/validate/register', { //Vertificar el endpoint
-                name: name,
-                email: email,
-                password: password
+            const response = await axios.post('http://localhost:8080/auth/validate/register', {
+            correoElectronico: email,
+            nombre: name,
+            contrasena: password
             });
-
-            alert("Sign Up successful");
+            
+            const userData = response.data;
+            localStorage.setItem('usuario', JSON.stringify(userData));
+            alert("Registro exitoso");
             navigate("/MyDay");
+             
         } catch (error) {
+            console.error("Sign Up error:", error);
             alert("An error occurred during sign up");
             setEmail('');
             setName('');
@@ -64,7 +69,7 @@ export default function SignUp(){
                 <MainPageButton text = "Sign Up" onClick = {handleSignUp} />
                 <MainPageButton text = "Back" onClick = {handleBack} />
                  {
-                    //Hacer Una Seleccion de Iconos -> Para establecer icono
+    
                  }
             </div>
         </div>
